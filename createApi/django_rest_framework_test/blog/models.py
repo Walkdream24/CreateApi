@@ -19,7 +19,10 @@ class Entry(models.Model):
         (STATUS_PUBLIC, "公開中"),
     )
     title = models.CharField(max_length=128)
+    genre = models.CharField(max_length=10, default='')
     body = models.TextField()
+    site_Url = models.URLField(max_length=200, default='')
+    image_url = models.ImageField(upload_to='images/', default='nothingImg')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(choices=STATUS_SET, default=STATUS_DRAFT, max_length=8)
